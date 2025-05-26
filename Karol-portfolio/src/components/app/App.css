@@ -1,0 +1,139 @@
+/* Importar la fuente */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #0a0a0a;
+  font-family: 'Press Start 2P', cursive;
+  color: #00ff99;
+  overflow: visible; /* Cambiado de hidden a visible */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Contenedor tipo pantalla */
+.app-container {
+  width: 95vw;
+  height: 90vh;
+  max-width: 900px;
+  max-height: 600px;
+  background-image: url('/src/assets/background.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  box-shadow:
+    0 0 20px #00ff99,
+    0 0 40px #00ff99,
+    0 0 60px #00ff99,
+    0 0 80px #00ff99;
+  border: 4px solid #00ff99;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: visible; /* Cambiado de hidden a visible */
+  padding: 1vh 0;
+  box-sizing: border-box;
+}
+
+/* Espacio principal */
+.main-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2vh;
+  text-align: center;
+  font-size: clamp(10px, 1.2vw, 14px); /* adaptable */
+  color: #00ff99;
+  text-shadow: 0 0 8px #00ff99;
+}
+
+/* Barras */
+.top-bar-container,
+.bottom-bar-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+}
+
+.top-bar {
+  width: 95%;
+  max-width: 850px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1vw;
+  flex-wrap: nowrap;
+  overflow: visible;
+}
+
+/* Botones */
+button {
+  background: transparent;
+  border: 2px solid #00ff99;
+  color: #00ff99;
+  font-family: 'Press Start 2P', cursive;
+  font-size: clamp(7px, 1vw, 9px);
+  padding: 0.5vh 1vw;
+  margin: 0 0.5vw;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 6px #00ff99;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+button:hover {
+  background-color: #00ff99;
+  color: #0a0a0a;
+  box-shadow:
+    0 0 12px #00ff99,
+    0 0 24px #00ff99;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  position: absolute;
+  top: 40px;
+  left: 10px;
+  background: rgba(0, 255, 153, 0.1);
+  border: 2px solid #00ff99;
+  padding: 10px;
+  border-radius: 6px;
+  box-shadow: 0 0 10px #00ff99;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: clamp(7px, 1vw, 9px);
+  z-index: 999; /* importante para que esté encima */
+  white-space: nowrap;
+}
+
+.dropdown-menu a {
+  color: #00ff99;
+  text-decoration: none;
+  text-shadow: 0 0 6px #00ff99;
+  transition: color 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+  color: #0a0a0a;
+  background-color: #00ff99;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+/* Título o bienvenida */
+h1 {
+  font-size: clamp(12px, 2vw, 16px);
+  text-shadow:
+    0 0 5px #00ff99,
+    0 0 10px #00ff99,
+    0 0 20px #00ff99;
+}
