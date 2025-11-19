@@ -27,11 +27,19 @@ const Gallery = () => {
     setIsZoomed((prev) => !prev);
   };
 
+  const handleReturn = () => {
+    setIsZoomed(false);
+  };
+
   if (images.length === 0) return <p>Cargando imágenes...</p>;
 
   return (
     <div className={`slider-container ${isZoomed ? 'zoomed' : ''}`}>
-      <button className="slider-button left" onClick={prevSlide}>❮</button>
+
+      {/* Flecha izquierda */}
+      {!isZoomed && (
+        <button className="slider-button left" onClick={prevSlide}>❮</button>
+      )}
 
       <div className="slider-image-wrapper">
         <img
@@ -40,10 +48,21 @@ const Gallery = () => {
           onClick={toggleZoom}
           className={isZoomed ? 'zoomed-img' : ''}
         />
+
         <p className="slider-caption">{images[currentIndex].caption}</p>
       </div>
 
-      <button className="slider-button right" onClick={nextSlide}>❯</button>
+      {/* Flecha derecha */}
+      {!isZoomed && (
+        <button className="slider-button right" onClick={nextSlide}>❯</button>
+      )}
+
+      {/* Botón Return cuando está en zoom */}
+      {isZoomed && (
+        <button className="return-button" onClick={handleReturn}>
+          ⟵ Return
+        </button>
+      )}
 
       {isZoomed && <div className="overlay" onClick={toggleZoom}></div>}
     </div>
