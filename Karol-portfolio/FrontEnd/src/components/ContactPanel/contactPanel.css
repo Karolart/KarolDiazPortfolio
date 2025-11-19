@@ -1,0 +1,13 @@
+.contact-wrap { display:flex; flex-direction:column; align-items:center; gap:12px; }
+.catch-area { position:relative; width: 680px; height: 260px; background:#050008; border:4px solid rgba(255,80,190,0.08); border-radius:8px; overflow:hidden; }
+.collector { position:absolute; bottom:12px; left:50%; transform:translateX(-50%); font-size:36px; }
+.drop-msg {
+  position:absolute;
+  top:10px;
+  background: transparent;
+  border: none;
+  font-size:18px;
+  animation: fall 6s linear forwards;
+  cursor: pointer;
+}
+@keyframes fall { to { transform: translateY(240px); } }
