@@ -29,7 +29,7 @@ app.get("/api/galeria", (req, res) => {
       alt: "Diseño UI conceptual 2",
       caption: "Diseño UI conceptual"
     },
-      {
+    {
       src: "http://localhost:4000/Images/GameOverPanel.gif",
       alt: "Diseño UI conceptual 2",
       caption: "Diseño UI conceptual"
@@ -45,16 +45,40 @@ app.get("/api/galeria", (req, res) => {
       caption: "Diseño UI conceptual"
     },
     {
-      src: "http://localhost:4000/Images/Avatar.gif",
+      src: "http://localhost:4000/Images/Avatar1.gif",
       alt: "Diseño UI conceptual 2",
       caption: "Diseño UI conceptual"
     },
-  
+    {
+      src: "http://localhost:4000/Images/Avatar2.gif",
+      alt: "Diseño UI conceptual 2",
+      caption: "Diseño UI conceptual"
+    },
+
+    {
+      src: "http://localhost:4000/Images/DrawingDescription.png",
+      alt: "my love for drawing",
+      caption: ""
+    },
+
+    {
+      src: "http://localhost:4000/Images/spring.jpg",
+      alt: "Publicidad para restaurante",
+      caption: ""
+    },
+
+    {
+      src: "http://localhost:4000/Images/magic.jpg",
+      alt: "Publicidad para restaurante",
+      caption: "Publicidad para restaurante"
+    },
+
     {
       src: "http://localhost:4000/Images/autum.jpg",
       alt: "Publicidad para restaurante",
       caption: "Publicidad para restaurante"
     }
+
   ]);
 });
 

@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import IntroPanel from "../IntroPanel/IntroPanel";
 import TopBar from "../TopBar/TopBar";
 import BottomBar from "../BottomBar/BottomBar";
 import Gallery from "../Gallery/Gallery";
@@ -9,27 +10,31 @@ import AboutMiniGame from "../AboutMiniGame/AboutMiniGame";
 import Reveal from "../AboutMiniGame/Reveal";
 import SkillsPanel from "../SkillsPanel/SkillsPanel";
 import ContactPanel from "../ContactPanel/ContactPanel";
-import bgImage from '../../assets/project-bg.jpg';
+import bgImage from "../../assets/BG_hero.jpg";
 import "./App.css";
 
 const App = () => {
+  // --------------------------
+  // State management
+  // --------------------------
   const [activeSection, setActiveSection] = useState(null);
   const [panelContent, setPanelContent] = useState(null);
   const [showReveal, setShowReveal] = useState(false);
   const [unlockedSkills, setUnlockedSkills] = useState(false);
   const [revealedContact, setRevealedContact] = useState(false);
+  const [introDone, setIntroDone] = useState(false); // <-- track if intro finished
 
+  // --------------------------
+  // Refs for scrolling
+  // --------------------------
   const galleryRef = useRef(null);
   const gameJamsRef = useRef(null);
   const projectsRef = useRef(null);
   const aboutRef = useRef(null);
 
-  const openAbout = () => setShowAboutMiniGame(true);
-  const openSkills = () => setShowSkillsMiniGame(true);
-  const openContact = () => setShowContactMiniGame(true);
-
-
-  // scroll map (keep for existing sections)
+  // --------------------------
+  // Scroll to section
+  // --------------------------
   useEffect(() => {
     if (!activeSection) return;
     const refsMap = {
@@ -44,184 +49,168 @@ const App = () => {
     }
   }, [activeSection]);
 
-  // open panel helper
-  function openPanel(name) {
+  // --------------------------
+  // Panel open helper
+  // --------------------------
+  const openPanel = (name) => {
     setShowReveal(false);
     setUnlockedSkills(false);
     setRevealedContact(false);
-    setActiveSection(name); // keep for your scroll system
-    // set content according to name
+
+    setActiveSection(name);
+
     if (name === "about") {
-      setPanelContent(
-        <AboutMiniGame
-          onReveal={() => {
-            setShowReveal(true);
-          }}
-        />
-      );
+      setPanelContent(<AboutMiniGame onReveal={() => setShowReveal(true)} />);
     } else if (name === "skills") {
-      setPanelContent(
-        <SkillsPanel
-          onComplete={() => {
-            setUnlockedSkills(true);
-          }}
-        />
-      );
+      setPanelContent(<SkillsPanel onComplete={() => setUnlockedSkills(true)} />);
     } else if (name === "contact") {
-      setPanelContent(
-        <ContactPanel
-          onComplete={() => {
-            setRevealedContact(true);
-          }}
-        />
-      );
+      setPanelContent(<ContactPanel onComplete={() => setRevealedContact(true)} />);
     } else {
       setPanelContent(null);
     }
-  }
+  };
 
-  // close panel
-  function closePanel() {
+  const closePanel = () => {
     setPanelContent(null);
     setActiveSection(null);
     setShowReveal(false);
     setUnlockedSkills(false);
     setRevealedContact(false);
-  }
+  };
 
+  // --------------------------
+  // Render
+  // --------------------------
   return (
-    
-<div
-  className="app-container"
-  style={{ backgroundImage: `url(${bgImage})` }}
->
-     
-      {/* TopBar is hidden while panelContent exists (modal open) */}
-      {!panelContent && (
-        <TopBar
-          onGalleryClick={() => setActiveSection("gallery")}
-          onGameJamsClick={() => setActiveSection("gamejams")}
-          onProjectsClick={() => setActiveSection("projects")}
-          onAboutClick={() => openPanel("about")}
-          onSkillsClick={() => openPanel("skills")}   
-          onContactClick={() => openPanel("contact")}   
-        />
+    <div
+      className="app-container"
+      style={{
+        backgroundImage: `url(${bgImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
+      {/* Overlay onírico/futurista */}
+      <div className="overlay"></div>
 
+      {!introDone && (
+        <IntroPanel onExplore={() => setIntroDone(true)} />
       )}
 
-      <div className="main-content">{/* content/home */}</div>
+      {/* Show app only after intro */}
+      {introDone && (
+        <>
+          {/* TopBar visible if no panel open */}
+          {!panelContent && (
+            <TopBar
+              onGalleryClick={() => setActiveSection("gallery")}
+              onGameJamsClick={() => setActiveSection("gamejams")}
+              onProjectsClick={() => setActiveSection("projects")}
+              onAboutClick={() => openPanel("about")}
+              onSkillsClick={() => openPanel("skills")}
+              onContactClick={() => openPanel("contact")}
+            />
+          )}
 
-      {!panelContent && (
-        <div className="bottom-bar-wrapper">
-          <BottomBar />
-        </div>
-      )}
+          {/* Panels */}
+          <section
+            ref={galleryRef}
+            className="panel-screen"
+            style={{ display: activeSection === "gallery" ? "flex" : "none" }}
+          >
+            <Gallery />
+            <button className="return-button" onClick={() => setActiveSection(null)}>
+              Return
+            </button>
+          </section>
 
-      {/* existing sections (unchanged) */}
-      <section
-        ref={galleryRef}
-        className="section-panel"
-        style={{ display: activeSection === "gallery" ? "block" : "none" }}
-      >
-        <Gallery />
-        <button
-          className="return-button"
-          onClick={() => {
-            setActiveSection(null);
-            window.scrollTo({ top: 0, behavior: "smooth" });
-          }}
-        >
-          Return
-        </button>
-      </section>
+          <section
+            ref={gameJamsRef}
+            className="panel-screen"
+            style={{ display: activeSection === "gamejams" ? "flex" : "none" }}
+          >
+            <GameJams />
+            <button className="return-button" onClick={() => setActiveSection(null)}>
+              Return
+            </button>
+          </section>
 
-      <section
-        ref={gameJamsRef}
-        className="section-panel"
-        style={{ display: activeSection === "gamejams" ? "block" : "none" }}
-      >
-        <GameJams />
-        <button
-          className="return-button"
-          onClick={() => {
-            setActiveSection(null);
-            window.scrollTo({ top: 0, behavior: "smooth" });
-          }}
-        >
-          Return
-        </button>
-      </section>
+          <section
+            ref={projectsRef}
+            className="panel-screen"
+            style={{ display: activeSection === "projects" ? "flex" : "none" }}
+          >
+            <Projects />
+            <button className="return-button" onClick={() => setActiveSection(null)}>
+              Return
+            </button>
+          </section>
 
-      <section
-        ref={projectsRef}
-        className="section-panel"
-        style={{ display: activeSection === "projects" ? "block" : "none" }}
-      >
-        <Projects />
-        <button
-          className="return-button"
-          onClick={() => {
-            setActiveSection(null);
-            window.scrollTo({ top: 0, behavior: "smooth" });
-          }}
-        >
-          Return
-        </button>
-      </section>
-
-      {/* Retro modal panel (reusable) */}
-      {panelContent && (
-        <RetroPanel
-          title={
-            activeSection === "about"
-              ? "ABOUT ME"
-              : activeSection === "skills"
-                ? "SKILLS"
-                : activeSection === "contact"
+          {/* Retro modal panel */}
+          {panelContent && (
+            <RetroPanel
+              title={
+                activeSection === "about"
+                  ? "ABOUT ME"
+                  : activeSection === "skills"
+                  ? "SKILLS"
+                  : activeSection === "contact"
                   ? "CONTACT"
                   : ""
-          }
-          onReturn={closePanel}
-          soundOn={true}
-        >
-          {/* Show reveal (About) */}
-          {activeSection === "about" && showReveal ? (
-            <Reveal
-              onReturn={() => {
-                closePanel();
-              }}
-            />
-          ) : null}
-
-          {/* Show unlocked skills after completion */}
-          {activeSection === "skills" && unlockedSkills ? (
-            <div style={{ textAlign: "center" }}>
-              <h3 style={{ color: "#ffdff7", fontFamily: "'Press Start 2P', monospace" }}>
-                SKILLS UNLOCKED
-              </h3>
-              <div style={{ color: "#ffdff7", fontFamily: "'Press Start 2P', monospace", marginTop: 8 }}>
-                Frontend · Backend · Unity · DB Admin · Full Stack
-              </div>
-            </div>
-          ) : null}
-
-          {/* Show contact details after catching messages */}
-          {activeSection === "contact" && revealedContact ? (
-            <div style={{ textAlign: "center", color: "#ffdff7", fontFamily: "'Press Start 2P', monospace" }}>
-              <h3>CONTACT</h3>
-              <p>Email: tuemail@ejemplo.com</p>
-              <p>GitHub: github.com/tuusuario</p>
-              <p>LinkedIn: linkedin.com/in/tuusuario</p>
-            </div>
-          ) : null}
-
-          {/* Normal panel content (game or interactive) */}
-          {!showReveal && !(activeSection === "skills" && unlockedSkills) && !(activeSection === "contact" && revealedContact) && (
-            <div style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              {panelContent}
-            </div>
+              }
+              onReturn={closePanel}
+              soundOn={true}
+            >
+              {activeSection === "about" && showReveal && <Reveal onReturn={closePanel} />}
+              {activeSection === "skills" && unlockedSkills && (
+                <div style={{ textAlign: "center" }}>
+                  <h3 style={{ color: "#ffdff7", fontFamily: "'Press Start 2P', monospace" }}>
+                    SKILLS UNLOCKED
+                  </h3>
+                  <div
+                    style={{
+                      color: "#ffdff7",
+                      fontFamily: "'Press Start 2P', monospace",
+                      marginTop: 8,
+                    }}
+                  >
+                    Frontend · Backend · Unity · DB Admin · Full Stack
+                  </div>
+                </div>
+              )}
+              {activeSection === "contact" && revealedContact && (
+                <div
+                  style={{
+                    textAlign: "center",
+                    color: "#ffdff7",
+                    fontFamily: "'Press Start 2P', monospace",
+                  }}
+                >
+                  <h3>CONTACT</h3>
+                  <p>Email: tuemail@ejemplo.com</p>
+                  <p>GitHub: github.com/tuusuario</p>
+                  <p>LinkedIn: linkedin.com/in/tuusuario</p>
+                </div>
+              )}
+              {!showReveal &&
+                !(activeSection === "skills" && unlockedSkills) &&
+                !(activeSection === "contact" && revealedContact) && (
+                  <div
+                    style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}
+                  >
+                    {panelContent}
+                  </div>
+                )}
+            </RetroPanel>
           )}
-        </RetroPanel>
+
+          {/* BottomBar always visible after intro */}
+          <div className="bottom-bar-wrapper">
+            <BottomBar />
+          </div>
+        </>
       )}
     </div>
   );
