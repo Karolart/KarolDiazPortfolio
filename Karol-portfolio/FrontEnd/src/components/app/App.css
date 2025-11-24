@@ -3,12 +3,14 @@
 ======================================== */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
-body, html, #root {
+body,
+html,
+#root {
   margin: 0;
   padding: 0;
   height: 100%;
   background-color: #0a0a0a;
-  font-family: 'Orbitron', sans-serif;
+  font-family: "'Press Start 2P', cursive";
   color: #00ff99;
   overflow: visible;
   display: flex;
@@ -47,7 +49,7 @@ body, html, #root {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  background: radial-gradient(circle, rgba(0,255,153,0.08) 0%, rgba(255,0,255,0.05) 50%, transparent 70%);
+  background: radial-gradient(circle, rgba(0, 255, 153, 0.08) 0%, rgba(255, 0, 255, 0.05) 50%, transparent 70%);
   mix-blend-mode: screen;
   z-index: 1;
 }
@@ -64,13 +66,19 @@ body, html, #root {
   text-align: center;
   font-size: clamp(10px, 1.2vw, 14px);
   color: #fff;
+
   background: linear-gradient(90deg, #00ff99, #ff00ff, #00ffff, #fff600);
+
+  background-clip: text;
+
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 6px rgba(0,255,153,0.4);
+
+  text-shadow: 0 0 6px rgba(0, 255, 153, 0.4);
   position: relative;
   z-index: 2;
 }
+
 
 /* Texto central sugerente */
 .central-quote {
@@ -96,9 +104,17 @@ body, html, #root {
    ANIMACIONES
 ======================================== */
 @keyframes float {
-  0% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-15px) rotate(5deg); }
-  100% { transform: translateY(0) rotate(0deg); }
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-15px) rotate(5deg);
+  }
+
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
 }
 
 /* ========================================

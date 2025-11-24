@@ -1,0 +1,70 @@
+.points-panel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.55);
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: 2px solid #ff33ff;
+  box-shadow: 0 0 12px #ff33ff;
+  font-family: "Press Start 2P", cursive;
+  color: #fff;
+  text-align: center;
+  z-index: 2000;
+  width: fit-content;
+}
+
+.score-text {
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
+/* ----- BOTONES ----- */
+.reward-button {
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-family: "Press Start 2P", cursive;
+  position: relative;
+}
+
+/* Bloqueado */
+.reward-button.locked {
+  background: gray;
+  opacity: 0.5;
+  border: none;
+  cursor: not-allowed;
+  color: #000;
+}
+
+/* Desbloqueado */
+.reward-button.unlocked {
+  background: #00ffff;
+  color: #000;
+  border: none;
+  cursor: pointer;
+}
+
+/* ----- TOOLTIP ----- */
+.tooltip {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -40px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #ff33ff;
+  font-size: 8px;
+  white-space: nowrap;
+  transition: 0.2s ease;
+  color: #fff;
+}
+
+.reward-button:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+  bottom: -32px;
+}

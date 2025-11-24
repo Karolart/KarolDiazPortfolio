@@ -12,6 +12,8 @@ import SkillsPanel from "../SkillsPanel/SkillsPanel";
 import ContactPanel from "../ContactPanel/ContactPanel";
 import bgImage from "../../assets/BG_hero.jpg";
 import "./App.css";
+import PointsPanel from "../PointsPanel/PointsPanel";
+
 
 const App = () => {
   // --------------------------
@@ -97,11 +99,16 @@ const App = () => {
 
       {!introDone && (
         <IntroPanel onExplore={() => setIntroDone(true)} />
+
       )}
 
       {/* Show app only after intro */}
       {introDone && (
         <>
+          {introDone && !panelContent && !activeSection && <PointsPanel />}
+
+
+
           {/* TopBar visible if no panel open */}
           {!panelContent && (
             <TopBar
@@ -155,10 +162,10 @@ const App = () => {
                 activeSection === "about"
                   ? "ABOUT ME"
                   : activeSection === "skills"
-                  ? "SKILLS"
-                  : activeSection === "contact"
-                  ? "CONTACT"
-                  : ""
+                    ? "SKILLS"
+                    : activeSection === "contact"
+                      ? "CONTACT"
+                      : ""
               }
               onReturn={closePanel}
               soundOn={true}
