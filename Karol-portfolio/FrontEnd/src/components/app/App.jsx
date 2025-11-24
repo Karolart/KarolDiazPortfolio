@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { PointsProvider } from "../context/PointsContext";
+import { PointsProvider } from "../context/PointsContext"; // <-- importa el provider
 import IntroPanel from "../IntroPanel/IntroPanel";
 import TopBar from "../TopBar/TopBar";
 import BottomBar from "../BottomBar/BottomBar";

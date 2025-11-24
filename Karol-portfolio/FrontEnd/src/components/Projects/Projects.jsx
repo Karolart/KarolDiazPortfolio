@@ -2,7 +2,7 @@
 import React, { useState, useRef, useEffect, useContext } from "react";
 import "./Projects.css";
 import bgImage from "../../assets/projects_BG.jpg";
-import { PointsContext } from "./context/PointsContext"; // ajusta la ruta
+import { PointsContext } from "../context/PointsContext"; // ajusta la ruta
 
 const Projects = ({ onGameWin }) => {
   const [showGame, setShowGame] = useState(false);
