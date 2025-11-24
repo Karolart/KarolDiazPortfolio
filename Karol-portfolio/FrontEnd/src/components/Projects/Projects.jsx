@@ -1,7 +1,8 @@
 // src/components/Projects/Projects.jsx
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import "./Projects.css";
 import bgImage from "../../assets/projects_BG.jpg";
+import { PointsContext } from "./context/PointsContext"; // ajusta la ruta
 
 const Projects = ({ onGameWin }) => {
   const [showGame, setShowGame] = useState(false);
@@ -21,6 +22,8 @@ const Projects = ({ onGameWin }) => {
   const GAME_HEIGHT = 600;
   const ENEMY_SPAWN_INTERVAL = 900;
   const WIN_SCORE = 10;
+
+  const { addPoints } = useContext(PointsContext);
 
   const rand = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
@@ -139,11 +142,16 @@ const Projects = ({ onGameWin }) => {
           if(en.hp<=0){
             enemiesRef.current.splice(i,1);
             spawnExplosion(en.x + en.size/2, en.y + en.size/2);
+
+            // suma al score local
             setScore(s=>{
               const newScore = s+1;
-              if(newScore>=WIN_SCORE) handleWin(newScore);
+              if(newScore >= WIN_SCORE) handleWin(newScore);
               return newScore;
             });
+
+            // suma 1 punto a la sesión global
+            addPoints(1);
           }
           break;
         }
@@ -162,17 +170,13 @@ const Projects = ({ onGameWin }) => {
     if(!canvas) return;
     const ctx = canvas.getContext("2d");
 
-    // Fondo con gradient sutil
     const grad = ctx.createLinearGradient(0,0,0,GAME_HEIGHT);
     grad.addColorStop(0, "#05050a");
     grad.addColorStop(1, "#101020");
     ctx.fillStyle = grad;
     ctx.fillRect(0,0,GAME_WIDTH,GAME_HEIGHT);
 
-    bulletsRef.current.forEach(b=>{
-      drawPixelShip(ctx, b.x-2, b.y-2, 0.8); // usar mini-nave como bala con glow
-    });
-
+    bulletsRef.current.forEach(b=>drawPixelShip(ctx, b.x-2, b.y-2, 0.8));
     enemiesRef.current.forEach(e=>drawPixelEnemy(ctx,e.x,e.y,1.4));
     drawPixelShip(ctx, shipRef.current.x, shipRef.current.y, 1.8);
 
