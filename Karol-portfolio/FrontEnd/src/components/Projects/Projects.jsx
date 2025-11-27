@@ -1,7 +1,7 @@
 // src/components/Projects/Projects.jsx
 import React, { useState, useRef, useEffect, useContext } from "react";
 import "./Projects.css";
-import bgImage from "../../assets/projects_BG.jpg";
+import bgImage from "../../assets/Projects_BG.jpg";
 import { PointsContext } from "../context/PointsContext"; // ajusta la ruta
 
 const Projects = ({ onGameWin }) => {
