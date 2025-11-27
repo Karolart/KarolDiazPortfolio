@@ -3,7 +3,7 @@ import './Gamejams.css';
 
 import amazonasImg from '../../assets/GameJams/amazonas.jpg';
 import ashaImg from '../../assets/GameJams/asha2.jpg';
-import knightImg from '../../assets/GameJams/knight.jpg';
+import knightImg from '../../assets/GameJams/Knight.jpg';
 
 const games = [
   { title: "Amazonas Odyssey", desc: "Survive the Colombian jungle and find your dog.", img: amazonasImg, link: "https://acchan23.itch.io/amazonas-odyssey-surviving-the-jungle" },
