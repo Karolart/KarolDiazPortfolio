@@ -5,67 +5,67 @@ const Gallery = () => {
   // AHORA las imágenes están aquí mismo, sin fetch
   const images = [
     {
-      src: "public/gallery/amazonasOdyssey.gif",
+      src: "public/Gallery/amazonasOdyssey.gif",
       alt: "Imagen 1",
       caption: "Amazonas Oddyssey Game Logo"
     },
     {
-      src: "public/gallery/amazonasoddysey.png",
+      src: "public/Gallery/amazonasoddysey.png",
       alt: "Main Panel",
       caption: "Main Game Panel "
     },
      {
-      src: "public/gallery/bannerAmazonas.png",
+      src: "public/Gallery/bannerAmazonas.png",
       alt: "Imagen 1",
       caption: "Amazonas Oddyssey Game Logo"
     },
     {
-      src: "public/gallery/AmazonasOdysseyInventory.png",
+      src: "public/Gallery/AmazonasOdysseyInventory.png",
       alt: "Imagen 3",
       caption: "Inventory System"
     },
       {
-      src: "public/gallery/inventory.png",
+      src: "public/Gallery/inventory.png",
       alt: "Imagen 3",
       caption: "Inventory System"
     },
       {
-      src: "public/gallery/suplies.gif",
+      src: "public/Gallery/suplies.gif",
       alt: "Imagen 3",
       caption: "Game Bonus designe"
     },
       {
-      src: "public/gallery/VictoryPanel.gif",
+      src: "public/Gallery/VictoryPanel.gif",
       alt: "Imagen 3",
       caption: "Game Victory Panel"
     }, 
       {
-      src: "public/gallery/GameOverPanel.gif",
+      src: "public/Gallery/GameOverPanel.gif",
       alt: "Imagen 3",
       caption: "Game Victory Panel"
     },
        {
-      src: "public/gallery/Knight.gif",
+      src: "public/Gallery/Knight.gif",
       alt: "Knight redemption",
       caption: "Game Main Panel"
     },
      {
-      src: "public/gallery/redemtionq.png",
+      src: "public/Gallery/redemtionq.png",
       alt: "Knight redemption",
       caption: "Game Main Panel"
     },
         {
-      src: "public/gallery/redemption.png",
+      src: "public/Gallery/redemption.png",
       alt: "Knight redemption",
       caption: "Game Main Panel"
     },
        {
-      src: "public/gallery/Asha1.gif",
+      src: "public/Gallery/Asha1.gif",
       alt: "Asha's ascence",
       caption: "Game Main Panel"
     },
        {
-      src: "public/gallery/Asha.png",
+      src: "public/Gallery/Asha.png",
       alt: "Asha's ascence",
       caption: "Game Main Panel"
     }
