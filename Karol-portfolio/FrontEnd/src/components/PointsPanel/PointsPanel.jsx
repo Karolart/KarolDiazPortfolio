@@ -5,6 +5,14 @@ import "./PointsPanel.css";
 export default function PointsPanel() {
   const { points, rewardUnlocked } = useContext(PointsContext);
 
+  // Función para descargar el PDF
+  const handleDownload = () => {
+    const link = document.createElement("a");
+    link.href = "/reward.pdf"; // Ruta en tu carpeta public
+    link.download = "A Collection of Fantastical Ink & Color Worlds"; // Nombre sugerido para guardar
+    link.click();
+  };
+
   return (
     <div className="points-panel">
       <div className="score-text">SCORE: {points}</div>
@@ -12,7 +20,7 @@ export default function PointsPanel() {
       {rewardUnlocked ? (
         <button
           className="reward-button unlocked"
-          onClick={() => alert("Aquí descargas tu premio PDF :)")}
+          onClick={handleDownload}
         >
           DOWNLOAD REWARD
           <span className="tooltip">Claim your reward✨</span>

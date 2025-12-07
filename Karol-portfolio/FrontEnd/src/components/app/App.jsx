@@ -140,7 +140,7 @@ const App = () => {
               className="panel-screen"
               style={{ display: activeSection === "projects" ? "flex" : "none" }}
             >
-              <Projects onGameWin={() => { /* Points sum happens inside context */ }} />
+              <Projects onGameWin={() => {}} />
               <button className="return-button" onClick={() => setActiveSection(null)}>
                 Return
               </button>
@@ -161,6 +161,7 @@ const App = () => {
                 soundOn={true}
               >
                 {activeSection === "about" && showReveal && <Reveal onReturn={closePanel} />}
+
                 {activeSection === "skills" && unlockedSkills && (
                   <div style={{ textAlign: "center" }}>
                     <h3 style={{ color: "#ffdff7", fontFamily: "'Press Start 2P', monospace" }}>
@@ -177,6 +178,7 @@ const App = () => {
                     </div>
                   </div>
                 )}
+
                 {activeSection === "contact" && revealedContact && (
                   <div
                     style={{
@@ -186,11 +188,35 @@ const App = () => {
                     }}
                   >
                     <h3>CONTACT</h3>
-                    <p>Email: tuemail@ejemplo.com</p>
-                    <p>GitHub: github.com/tuusuario</p>
-                    <p>LinkedIn: linkedin.com/in/tuusuario</p>
+
+                    <p>Email: diazariaskarolvanessa@gmail.com</p>
+
+                    <p>
+                      GitHub:{" "}
+                      <a
+                        href="https://github.com/Karolart"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ color: "#ffdff7" }}
+                      >
+                        github.com/Karolart90
+                      </a>
+                    </p>
+
+                    <p>
+                      LinkedIn:{" "}
+                      <a
+                        href="https://linkedin.com/in/karolart"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ color: "#ffdff7" }}
+                      >
+                        linkedin.com/in/karolart
+                      </a>
+                    </p>
                   </div>
                 )}
+
                 {!showReveal &&
                   !(activeSection === "skills" && unlockedSkills) &&
                   !(activeSection === "contact" && revealedContact) && (
