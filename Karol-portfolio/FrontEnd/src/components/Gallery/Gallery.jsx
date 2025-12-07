@@ -10,62 +10,62 @@ const Gallery = () => {
       caption: "Amazonas Oddyssey Game Logo"
     },
     {
-      src: "public/Gallery/amazonasoddysey.png",
+      src: "/Gallery/amazonasoddysey.png",
       alt: "Main Panel",
       caption: "Main Game Panel "
     },
      {
-      src: "public/Gallery/bannerAmazonas.png",
+      src: "/Gallery/bannerAmazonas.png",
       alt: "Imagen 1",
       caption: "Amazonas Oddyssey Game Logo"
     },
     {
-      src: "public/Gallery/AmazonasOdysseyInventory.png",
+      src: "/Gallery/AmazonasOdysseyInventory.png",
       alt: "Imagen 3",
       caption: "Inventory System"
     },
       {
-      src: "public/Gallery/inventory.png",
+      src: "/Gallery/inventory.png",
       alt: "Imagen 3",
       caption: "Inventory System"
     },
       {
-      src: "public/Gallery/suplies.gif",
+      src: "/Gallery/suplies.gif",
       alt: "Imagen 3",
       caption: "Game Bonus designe"
     },
       {
-      src: "public/Gallery/VictoryPanel.gif",
+      src: "/Gallery/VictoryPanel.gif",
       alt: "Imagen 3",
       caption: "Game Victory Panel"
     }, 
       {
-      src: "public/Gallery/GameOverPanel.gif",
+      src: "/Gallery/GameOverPanel.gif",
       alt: "Imagen 3",
       caption: "Game Victory Panel"
     },
        {
-      src: "public/Gallery/Knight.gif",
+      src: "/Gallery/Knight.gif",
       alt: "Knight redemption",
       caption: "Game Main Panel"
     },
      {
-      src: "public/Gallery/redemtionq.png",
+      src: "/Gallery/redemtionq.png",
       alt: "Knight redemption",
       caption: "Game Main Panel"
     },
         {
-      src: "public/Gallery/redemption.png",
+      src: "/Gallery/redemption.png",
       alt: "Knight redemption",
       caption: "Game Main Panel"
     },
        {
-      src: "public/Gallery/Asha1.gif",
+      src: "/Gallery/Asha1.gif",
       alt: "Asha's ascence",
       caption: "Game Main Panel"
     },
        {
-      src: "public/Gallery/Asha.png",
+      src: "/Gallery/Asha.png",
       alt: "Asha's ascence",
       caption: "Game Main Panel"
     }
