@@ -5,7 +5,7 @@ const Gallery = () => {
   // AHORA las imágenes están aquí mismo, sin fetch
   const images = [
     {
-      src: "public/Gallery/amazonasOdyssey.gif",
+      src: "/Gallery/amazonasOdyssey.gif",
       alt: "Imagen 1",
       caption: "Amazonas Oddyssey Game Logo"
     },
