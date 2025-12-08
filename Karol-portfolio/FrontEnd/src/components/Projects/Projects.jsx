@@ -251,11 +251,45 @@ const Projects = ({ onGameWin }) => {
     <section className="projects-panel" style={{backgroundImage:`url(${bgImage})`}}>
       <h2 className="projects-title">Mis Proyectos</h2>
       <div className="projects-grid">
-        <div className="project-card"><p>Visor retro para menú de restaurante</p></div>
-        <div className="project-card"><p>La Navarra Market-Local bussines Directory</p></div>
-        <div className="project-card"><p>Animal Soul</p></div>
-        <div className="project-card"><p>Indigo Plataforma Artistica</p></div>
-      </div>
+
+  <a
+    className="project-card"
+    href="https://dmonts-food-rest.vercel.app/"
+    target="_blank"
+  >
+    <img src="/images/dmonts.png" alt="Visor retro" />
+    <p>Visor retro para menú de restaurante</p>
+  </a>
+
+  <a
+    className="project-card"
+    href="https://directorio-la-navarra.vercel.app/"
+    target="_blank"
+  >
+    <img src="/images/navarramarket.png" alt="La Navarra Market" />
+    <p>La Navarra Market - Local Business Directory</p>
+  </a>
+
+  <a
+    className="project-card"
+    href="https://tu-link-del-proyecto-3.com"
+    target="_blank"
+  >
+    <img src="/images/proyecto3.jpg" alt="Animal Soul" />
+    <p>Animal Soul</p>
+  </a>
+
+  <a
+    className="project-card"
+    href="https://indigo-plataforma-artistica.vercel.app/"
+    target="_blank"
+  >
+    <img src="/images/indigo.png" alt="Indigo Plataforma Artistica" />
+    <p>Indigo Plataforma Artística</p>
+  </a>
+
+</div>
+
 
       <button className="play-game-button" onClick={startGame}>Jugar Mini Game</button>
 
