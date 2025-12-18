@@ -10,4 +10,5 @@
   animation: fall 6s linear forwards;
   cursor: pointer;
 }
+
 @keyframes fall { to { transform: translateY(240px); } }

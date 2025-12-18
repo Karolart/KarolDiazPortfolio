@@ -173,3 +173,21 @@ body, .main-content {
 .dropdown-menu a:hover {
   color: white;
 }
+.tech-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.tech-icon {
+  width: 26px;
+  height: 26px;
+  filter: drop-shadow(0 0 6px #00f7ff);
+  transition: 0.3s ease-in-out;
+}
+
+.tech-btn:hover .tech-icon {
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 14px #00f7ff);
+}

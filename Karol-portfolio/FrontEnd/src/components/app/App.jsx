@@ -13,6 +13,7 @@ import SkillsPanel from "../SkillsPanel/SkillsPanel";
 import ContactPanel from "../ContactPanel/ContactPanel";
 import PointsPanel from "../PointsPanel/PointsPanel";
 import bgImage from "../../assets/BG_hero.jpg";
+import AboutController from "../AboutMiniGame/AboutController";
 import "./App.css";
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
   const [unlockedSkills, setUnlockedSkills] = useState(false);
   const [revealedContact, setRevealedContact] = useState(false);
   const [introDone, setIntroDone] = useState(false);
+
 
   // --------------------------
   // Refs for scrolling
@@ -61,7 +63,10 @@ const App = () => {
     setActiveSection(name);
 
     if (name === "about") {
-      setPanelContent(<AboutMiniGame onReveal={() => setShowReveal(true)} />);
+      if (name === "about") {
+        setPanelContent(<AboutController onReturn={closePanel} />);
+      }
+
     } else if (name === "skills") {
       setPanelContent(<SkillsPanel onComplete={() => setUnlockedSkills(true)} />);
     } else if (name === "contact") {
@@ -140,7 +145,7 @@ const App = () => {
               className="panel-screen"
               style={{ display: activeSection === "projects" ? "flex" : "none" }}
             >
-              <Projects onGameWin={() => {}} />
+              <Projects onGameWin={() => { }} />
               <button className="return-button" onClick={() => setActiveSection(null)}>
                 Return
               </button>
@@ -152,10 +157,10 @@ const App = () => {
                   activeSection === "about"
                     ? "ABOUT ME"
                     : activeSection === "skills"
-                    ? "SKILLS"
-                    : activeSection === "contact"
-                    ? "CONTACT"
-                    : ""
+                      ? "SKILLS"
+                      : activeSection === "contact"
+                        ? "CONTACT"
+                        : ""
                 }
                 onReturn={closePanel}
                 soundOn={true}
@@ -180,42 +185,54 @@ const App = () => {
                 )}
 
                 {activeSection === "contact" && revealedContact && (
-                  <div
-                    style={{
-                      textAlign: "center",
-                      color: "#ffdff7",
-                      fontFamily: "'Press Start 2P', monospace",
-                    }}
-                  >
-                    <h3>CONTACT</h3>
+                  <div className="contact-panel">
+                    <h3 className="contact-title">Connect with me</h3>
 
-                    <p>Email: diazariaskarolvanessa@gmail.com</p>
+                    <div className="contact-item">
+                      <span className="contact-label">Email</span>
+                      <span className="contact-value">
+                        diazariaskarolvanessa@gmail.com
+                      </span>
+                    </div>
 
-                    <p>
-                      GitHub:{" "}
+                    <div className="contact-item">
+                      <span className="contact-label">GitHub</span>
                       <a
                         href="https://github.com/Karolart"
                         target="_blank"
                         rel="noopener noreferrer"
-                        style={{ color: "#ffdff7" }}
+                        className="contact-link"
                       >
                         github.com/Karolart90
                       </a>
-                    </p>
+                    </div>
+                    
+                    <div className="contact-item">
+                      <span className="contact-label">Itchio</span>
+                      <a
+                        href="https://karolart90.itch.io/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="contact-link"
+                      >
+                        https://karolart90.itch.io/
+                      </a>
+                    </div>
 
-                    <p>
-                      LinkedIn:{" "}
+                    <div className="contact-item">
+                      <span className="contact-label">LinkedIn</span>
                       <a
                         href="https://linkedin.com/in/karolart"
                         target="_blank"
                         rel="noopener noreferrer"
-                        style={{ color: "#ffdff7" }}
+                        className="contact-link"
                       >
                         linkedin.com/in/karolart
                       </a>
-                    </p>
+                    </div>
                   </div>
                 )}
+
 
                 {!showReveal &&
                   !(activeSection === "skills" && unlockedSkills) &&

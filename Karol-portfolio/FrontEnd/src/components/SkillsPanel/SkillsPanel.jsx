@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./skillsPanel.css";
 
+// Icons for the matching game
 const icons = ["🎨", "💻", "🕹️", "🛠️", "📊", "🧩"]; // 6 unique -> 12 cards
 
 function shuffle(arr) {
   return arr.sort(() => Math.random() - 0.5);
 }
 
-const SkillsPanel = ({ onComplete }) => {
+const SkillsPanel = ({ onComplete, onSkip }) => {
   const [cards, setCards] = useState([]);
   const [flipped, setFlipped] = useState([]);
   const [matched, setMatched] = useState([]);
@@ -17,6 +18,7 @@ const SkillsPanel = ({ onComplete }) => {
     setCards(doubled);
   }, []);
 
+  // Flip card handler
   function flip(i) {
     if (flipped.includes(i) || matched.includes(i)) return;
     const next = [...flipped, i];
@@ -38,22 +40,35 @@ const SkillsPanel = ({ onComplete }) => {
 
   return (
     <div className="skills-wrap">
+      <div className="skip-button">
+        <button onClick={onSkip}>Skip Game</button>
+      </div>
+
       <div className="skills-grid">
         {cards.map((c, i) => (
-        <button
-  key={i}
-  className={`skill-card ${flipped.includes(i) || matched.includes(i) ? "open" : ""}`}
-  onClick={() => flip(i)}
->
-  <div className="skill-card-inner">
-    <div className="card-front">{c}</div>
-    <div className="card-back">?</div>
-  </div>
-</button>
-
+          <button
+            key={i}
+            className={`skill-card ${
+              flipped.includes(i) || matched.includes(i) ? "open" : ""
+            }`}
+            onClick={() => flip(i)}
+          >
+            <div className="skill-card-inner">
+              <div className="card-front">{`"${c}"`}</div> {/* Added quotes */}
+              <div className="card-back">?</div>
+            </div>
+          </button>
         ))}
       </div>
-      <div style={{ fontFamily: "'Press Start 2P', monospace", color: "#ffdff7", fontSize: 12, marginTop: 12 }}>
+
+      <div
+        style={{
+          fontFamily: "'Press Start 2P', monospace",
+          color: "#ffdff7",
+          fontSize: 12,
+          marginTop: 12,
+        }}
+      >
         Find the pairs to unlock skills!
       </div>
     </div>

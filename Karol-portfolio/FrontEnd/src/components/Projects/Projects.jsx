@@ -272,15 +272,6 @@ const Projects = ({ onGameWin }) => {
 
   <a
     className="project-card"
-    href="https://tu-link-del-proyecto-3.com"
-    target="_blank"
-  >
-    <img src="/images/proyecto3.jpg" alt="Animal Soul" />
-    <p>Animal Soul</p>
-  </a>
-
-  <a
-    className="project-card"
     href="https://indigo-plataforma-artistica.vercel.app/"
     target="_blank"
   >

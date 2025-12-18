@@ -39,6 +39,7 @@ const TopBar = ({
           <button className="nav-btn" onClick={onAboutClick}>About Me</button>
           <button className="nav-btn" onClick={onSkillsClick}>Skills</button>
           <button className="nav-btn" onClick={onContactClick}>Contact</button>
+          
         </div>
       </div>
     </div>
