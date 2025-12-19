@@ -134,15 +134,18 @@ const BottomBar = () => {
         )}
 
         {gameOver && (
-          <div className="game-message">
-            {message}
-            {message === 'Try again' && (
-              <button className="retry-btn" onClick={resetGame}>
-                ↻ Try Again
-              </button>
-            )}
-          </div>
-        )}
+  <div className="game-message">
+    <span>{message}</span>
+
+    {message !== '20 Points earned!' && (
+      <button className="retry-btn" onClick={resetGame}>
+        ↻ Try Again
+      </button>
+    )}
+  </div>
+)}
+
+
       </div>
     </div>
   );
