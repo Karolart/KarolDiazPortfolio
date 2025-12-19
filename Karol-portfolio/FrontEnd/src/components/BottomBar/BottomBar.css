@@ -1,70 +1,129 @@
+/* ================= HOVER ZONE ================= */
+
 .bottom-hover-zone {
   position: fixed;
   bottom: 0;
   left: 0;
-  height: 30px;
+  height: 36px;
   width: 100%;
-  z-index: 10;
+  z-index: 20;
 }
+
+/* ================= BOTTOM BAR ================= */
 
 .bottom-bar {
   width: 100%;
-  height: 80px;
-  background: rgba(0, 0, 0, 0.6);
-  border-top: 3px solid #39ff14;
+  height: 88px;
+  background: linear-gradient(
+    180deg,
+    rgba(20, 0, 40, 0.92),
+    rgba(5, 0, 20, 0.92)
+  );
+  border-top: 2px solid rgba(255, 80, 190, 0.8);
+  box-shadow:
+    0 -10px 40px rgba(255, 80, 190, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   position: absolute;
-  bottom: -80px;
+  bottom: -88px;
   left: 0;
-  transition: bottom 0.3s ease;
-  font-family: 'Courier New', Courier, monospace;
-  color: #39ff14;
+  transition: bottom 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+
+  font-family: "Press Start 2P", monospace;
+  color: #ffdff7;
 }
 
 .bottom-hover-zone:hover .bottom-bar {
   bottom: 0;
 }
 
+/* ================= BUTTONS ================= */
+
 .play-btn,
 .retry-btn {
-  font-size: 1rem;
-  background-color: transparent;
-  border: 2px solid #39ff14;
-  color: #39ff14;
-  padding: 6px 20px;
-  margin-left: 10px;
+  font-size: 11px;
+  background: transparent;
+  border: 2px solid #ff4fbf;
+  color: #ffdff7;
+  padding: 8px 18px;
+  margin-left: 12px;
   cursor: pointer;
-  border-radius: 4px;
-  transition: all 0.3s ease;
+  border-radius: 10px;
+  letter-spacing: 0.5px;
+
+  box-shadow:
+    0 0 12px rgba(255, 79, 191, 0.4),
+    inset 0 0 6px rgba(255, 255, 255, 0.05);
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease;
 }
 
 .play-btn:hover,
 .retry-btn:hover {
-  background-color: #39ff14;
-  color: black;
+  background: rgba(255, 79, 191, 0.15);
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 22px rgba(255, 79, 191, 0.7);
 }
+
+/* ================= GAME CONTAINER ================= */
 
 .game-container {
   position: relative;
-  width: 500px;
-  height: 50px;
-  background-color: black;
-  border: 2px solid #39ff14;
+  width: 520px;
+  height: 56px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(10, 0, 25, 0.95),
+      rgba(0, 0, 0, 0.95)
+    );
+  border: 2px solid rgba(80, 200, 255, 0.7);
+  box-shadow:
+    0 0 25px rgba(80, 200, 255, 0.25),
+    inset 0 0 18px rgba(0, 0, 0, 0.8);
   overflow: hidden;
+
   display: flex;
   align-items: flex-end;
+  border-radius: 10px;
 }
 
-.dino {
-  width: 40px;
-  height: 40px;
-  background-color: #39ff14;
+/* Scanline effect */
+.game-container::after {
+  content: "";
   position: absolute;
-  left: 50px;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.04),
+    rgba(255, 255, 255, 0.04) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  pointer-events: none;
+}
+
+/* ================= PLAYER ================= */
+
+.dino {
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(135deg, #ff4fbf, #7df9ff);
+  position: absolute;
+  left: 48px;
   bottom: 0;
-  transition: bottom 0.2s;
+  border-radius: 6px;
+  box-shadow:
+    0 0 18px rgba(255, 79, 191, 0.8);
 }
 
 .dino.jump {
@@ -73,31 +132,44 @@
 
 @keyframes jump {
   0% { bottom: 0; }
-  30% { bottom: 60px; }
-  70% { bottom: 60px; }
+  30% { bottom: 64px; }
+  70% { bottom: 64px; }
   100% { bottom: 0; }
 }
 
+/* ================= OBSTACLE ================= */
+
 .obstacle {
-  width: 20px;
-  height: 40px;
-  background-color: #ff073a;
+  width: 18px;
+  height: 38px;
+  background: linear-gradient(180deg, #ff073a, #ff9a9e);
   position: absolute;
   bottom: 0;
-  left: 500px;
+  left: 520px;
+  border-radius: 4px;
+  box-shadow:
+    0 0 14px rgba(255, 7, 58, 0.7);
 }
+
+/* ================= SCORE ================= */
 
 .score {
   position: absolute;
-  top: -25px;
-  left: 10px;
-  font-size: 1rem;
+  top: -26px;
+  left: 12px;
+  font-size: 10px;
+  color: #7df9ff;
+  text-shadow: 0 0 10px rgb(0, 255, 153)
+;
 }
 
+/* ================= MESSAGE ================= */
+
 .game-message {
-  margin-left: 1rem;
-  font-size: 1.2rem;
-  font-weight: bold;
+  margin-left: 16px;
+  font-size: 12px;
+  color: #ffb3ec;
+  text-shadow: 0 0 12px rgb(0, 255, 153);
   display: flex;
   align-items: center;
 }
