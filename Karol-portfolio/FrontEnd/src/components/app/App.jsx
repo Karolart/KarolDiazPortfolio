@@ -68,7 +68,8 @@ const App = () => {
       }
 
     } else if (name === "skills") {
-      setPanelContent(<SkillsPanel onComplete={() => setUnlockedSkills(true)} />);
+      setPanelContent(<SkillsPanel onComplete={() => setUnlockedSkills(true)} onSkip={() => setUnlockedSkills(true)}
+ />);
     } else if (name === "contact") {
       setPanelContent(<ContactPanel onComplete={() => setRevealedContact(true)} />);
     } else {
