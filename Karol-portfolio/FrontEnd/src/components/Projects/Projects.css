@@ -17,25 +17,22 @@
   padding-top: 0;
 }
 
-/* SUBIR LAS TARJETAS MUCHÍSIMO MÁS ARRIBA */
 .projects-grid {
-  margin-top: -100px; /* <-- AJUSTE PERFECTO SEGÚN LA IMAGEN */
+  margin-top: -100px; /
 }
 
-
-/* REJILLA CENTRADA COMO CUADROS EN LA PARED */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(2, 180px); /* 2 columnas */
+  grid-template-columns: repeat(2, 180px); 
   gap: 26px;
 
-  justify-content: center;  /* centra horizontal */
-  align-items: center;       /* centra vertical */
+  justify-content: center;  
+  align-items: center;       
 
   padding: 20px;
  margin-top: -40px;}
 
-/* TARJETAS MÁS PEQUEÑAS TIPO "CUADRO" */
+
 .project-card {
   width: 180px;
   background: rgba(0, 0, 0, 0.25);
@@ -55,10 +52,9 @@
   transition: 0.3s ease;
 }
 
-/* IMAGEN MÁS PEQUEÑA */
 .project-card img {
   width: 100%;
-  height: 110px;       /* tamaño más compacto */
+  height: 110px;       
   object-fit: cover;
   border-radius: 10px;
   margin-bottom: 10px;
@@ -66,7 +62,6 @@
   box-shadow: 0 0 8px rgba(0,255,230,0.4);
 }
 
-/* TEXTO CENTRADO */
 .project-card p {
   color: #cfffff;
   text-shadow: 0 0 4px #00ffe0;
@@ -75,14 +70,12 @@
   margin: 0;
 }
 
-/* ANIMACIÓN LIGERA */
 .project-card:hover {
   transform: translateY(-4px) scale(1.03);
   box-shadow: 0 0 14px #00ffe0;
 }
 
 
-/* RESPONSIVO — EN MÓVIL SOLO 1 POR FILA */
 @media (max-width: 520px) {
   .projects-grid {
     grid-template-columns: repeat(1, 180px);

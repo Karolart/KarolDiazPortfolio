@@ -272,7 +272,7 @@ const Projects = ({ onGameWin }) => {
 
   <a
     className="project-card"
-    href="https://indigo-plataforma-artistica.vercel.app/"
+    href="https://indigo-artistico.vercel.app/"
     target="_blank"
   >
     <img src="/images/indigo.png" alt="Indigo Plataforma Artistica" />

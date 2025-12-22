@@ -15,8 +15,8 @@
 
 .skill-card {
   perspective: 800px;
-  width: 80px; /* smaller cards */
-  height: 80px; /* smaller cards */
+  width: 80px; 
+  height: 80px;
 }
 
 .skill-card-inner {

@@ -10,6 +10,7 @@ const Gallery = () => {
       caption: "Amazonas Oddyssey Game Logo"
     },
     {
+      
       src: "/Gallery/amazonasoddysey.png",
       alt: "Main Panel",
       caption: "Main Game Panel "
