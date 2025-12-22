@@ -257,7 +257,7 @@ const Projects = ({ onGameWin }) => {
     href="https://dmonts-food-rest.vercel.app/"
     target="_blank"
   >
-    <img src="/images/dmonts.png" alt="Visor retro" />
+    <img src="/images/dmonts.png" alt="Visor retro"/>
     <p>Visor retro para menú de restaurante</p>
   </a>
 
@@ -266,7 +266,7 @@ const Projects = ({ onGameWin }) => {
     href="https://directorio-la-navarra.vercel.app/"
     target="_blank"
   >
-    <img src="/images/navarramarket.png" alt="La Navarra Market" />
+    <img src="/images/navarramarket.png" alt="La Navarra Market"/>
     <p>La Navarra Market - Local Business Directory</p>
   </a>
 
@@ -275,7 +275,7 @@ const Projects = ({ onGameWin }) => {
     href="https://indigo-artistico.vercel.app/"
     target="_blank"
   >
-    <img src="/images/indigo.png" alt="Indigo Plataforma Artistica" />
+    <img src="/images/indigo.png" alt="Indigo Plataforma Artistica"/>
     <p>Indigo Plataforma Artística</p>
   </a>
 
