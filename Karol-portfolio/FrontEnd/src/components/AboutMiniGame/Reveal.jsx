@@ -16,11 +16,9 @@ const Reveal = ({ onReturn }) => {
           <h2>Hi, I’m Karol</h2>
 
           <p>
-            I am a Creative Frontend Developer focused on building interactive, visually driven, and emotionally engaging digital experiences.
-            My work lives at the intersection of software development, digital art, and user experience design. I specialize in creating interfaces that don’t just function — they communicate, perform, and create atmosphere.
-            I work primarily with modern frontend technologies, building responsive, high-quality interfaces with strong attention to animation, motion systems, and visual storytelling.
-            I enjoy transforming complex ideas into intuitive and beautiful digital products. I am especially interested in projects where creativity and technology meet: interactive websites, artistic platforms, experiential landing pages, and modern UI systems.
-            Currently open to freelance collaborations and creative tech projects.
+            Creative Frontend Developer crafting interactive digital experiences where technology, art, and user experience meet.
+            Focused on modern frontend, motion, and visual storytelling to turn complex ideas into intuitive, high-impact products.
+            Open to freelance and creative collaborations.
           </p>
 
           <p>
