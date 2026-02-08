@@ -263,11 +263,11 @@ const Projects = ({ onGameWin }) => {
 
   <a
     className="project-card"
-    href="https://directorio-la-navarra.vercel.app/"
+    href="https://portafolio-indigo.vercel.app/"
     target="_blank"
   >
-    <img src="/images/navarramarket.png" alt="La Navarra Market"/>
-    <p>La Navarra Market - Local Business Directory</p>
+    <img src="/images/IndigoLogo2.png" alt="La Navarra Market"/>
+    <p>Indigo Artistico - Portfolio Website</p>
   </a>
 
   <a

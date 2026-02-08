@@ -23,15 +23,41 @@ const TopBar = ({
     >
       <div className="top-bar">
         <div className="left-section">
-          <button className="menu-btn" onClick={() => setMenuOpen(!menuOpen)}>
+          <button
+            className="menu-btn"
+            data-cy="menu-toggle"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
             ☰
           </button>
+
           {menuOpen && (
             <div className="dropdown-menu">
-              <a href="#gallery" onClick={() => handleClick(onGalleryClick)}>🎨 Gallery</a>
-              <a href="#gamejams" onClick={() => handleClick(onGameJamsClick)}>🕹 Game Jams</a>
-              <a href="#projects" onClick={() => handleClick(onProjectsClick)}>💻 Projects</a>
+              <a
+                href="#gallery"
+                data-cy="view-gallery"
+                onClick={() => handleClick(onGalleryClick)}
+              >
+                🎨 Gallery
+              </a>
+
+              <a
+                href="#gamejams"
+                data-cy="view-gamejams"
+                onClick={() => handleClick(onGameJamsClick)}
+              >
+                🕹 Game Jams
+              </a>
+
+              <a
+                href="#projects"
+                data-cy="view-projects"
+                onClick={() => handleClick(onProjectsClick)}
+              >
+                💻 Projects
+              </a>
             </div>
+
           )}
         </div>
 
@@ -39,7 +65,7 @@ const TopBar = ({
           <button className="nav-btn" onClick={onAboutClick}>About Me</button>
           <button className="nav-btn" onClick={onSkillsClick}>Skills</button>
           <button className="nav-btn" onClick={onContactClick}>Contact</button>
-          
+
         </div>
       </div>
     </div>
