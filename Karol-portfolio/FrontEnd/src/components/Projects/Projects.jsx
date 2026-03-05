@@ -278,6 +278,14 @@ const Projects = ({ onGameWin }) => {
     <img src="/images/indigo.png" alt="Indigo Plataforma Artistica"/>
     <p>Indigo Plataforma Artística</p>
   </a>
+  <a
+    className="project-card"
+    href="https://orbitina-dashboard.vercel.app/"
+    target="_blank"
+  >
+    <img src="/images/OrbitinaAgent.png" alt="Orbitina Agent"/>
+    <p>Orbitina I Agent</p>
+  </a>
 
 </div>
 
